@@ -1,0 +1,17 @@
+courses = []
+with open('data/courses.csv', 'r', encoding="utf-8") as file:
+  for line in file:
+    language, category = line.rstrip().split(',')
+    course = {}
+    course['language'] = language
+    course['category'] = category
+    courses.append(course)
+
+def get_language(course):
+  return course['language']
+
+def get_category(course):
+  return course['category']
+
+for course in sorted(courses, key=get_language):
+  print(f'{course["language"]}: {course["category"]}')
