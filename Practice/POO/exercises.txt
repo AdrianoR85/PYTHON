@@ -1,0 +1,20 @@
+1- Criando uma Classe Pessoa:
+Defina uma classe chamada Pessoa que tenha os atributos nome e idade. Em seguida, crie objetos dessa classe e imprima seus atributos.
+
+2- Calculadora Simples:
+Crie uma classe chamada Calculadora. Ela deve ter métodos para adição, subtração, multiplicação e divisão. Teste a classe criando instâncias e realizando operações matemáticas.
+
+3- Gerenciador de Contatos:
+Crie uma classe Contato que represente uma pessoa em uma lista de contatos. Ela deve ter atributos como nome, telefone e email. Em seguida, crie uma classe GerenciadorDeContatos que permita adicionar, remover e listar contatos.
+
+4- Banco:
+Crie uma classe Banco que tenha métodos para adicionar contas bancárias, verificar o saldo e realizar depósitos e saques. Cada conta bancária deve ser uma classe separada com um número de conta único e um saldo inicial.
+
+5- Jogo de Cartas:
+Crie uma classe Carta que represente uma carta de baralho, com atributos como valor e naipe. Em seguida, crie uma classe Baralho que represente um conjunto de cartas. Adicione métodos para embaralhar o baralho e distribuir cartas.
+
+6- Rede Social Simples:
+Crie classes para representar usuários e postagens em uma rede social simples. Os usuários devem ter atributos como nome, idade e lista de amigos. As postagens devem ter atributos como texto, autor e número de curtidas.
+
+7- Sistema de Vendas:
+Desenvolva um sistema de vendas com classes para representar produtos, clientes e pedidos. Os produtos devem ter nome e preço. Os clientes devem ter nome, endereço e lista de pedidos. Os pedidos devem incluir produtos, quantidades e preços.
