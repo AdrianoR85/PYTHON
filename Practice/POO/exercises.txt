@@ -1,9 +1,0 @@
-
-5- Jogo de Cartas:
-Crie uma classe Carta que represente uma carta de baralho, com atributos como valor e naipe. Em seguida, crie uma classe Baralho que represente um conjunto de cartas. Adicione métodos para embaralhar o baralho e distribuir cartas.
-
-6- Rede Social Simples:
-Crie classes para representar usuários e postagens em uma rede social simples. Os usuários devem ter atributos como nome, idade e lista de amigos. As postagens devem ter atributos como texto, autor e número de curtidas.
-
-7- Sistema de Vendas:
-Desenvolva um sistema de vendas com classes para representar produtos, clientes e pedidos. Os produtos devem ter nome e preço. Os clientes devem ter nome, endereço e lista de pedidos. Os pedidos devem incluir produtos, quantidades e preços.
