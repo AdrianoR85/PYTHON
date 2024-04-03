@@ -1,6 +1,6 @@
 import tkinter as tk
 import hashlib
-import pyperclip
+import pyperclip # type: ignore
 
 pyperclip.copy('The text to be copied to the clipboard.')
 pyperclip.paste()

@@ -1,23 +1,60 @@
-from random import randint
+from abc import ABC, abstractmethod
 
-class Account:
-  def __init__(self, balance=0.00):
-     self.__account_number = str(randint(1000000000, 9999999999))
-     self.__balance = float(balance)
-  
-  @property   
-  def balance(self):
-    return self.__balance
-  
-  @property
-  def account_number(self):
-    return self.__account_number
-  
-  @balance.setter
-  def balance(self, new_balance):
-    self.__balance = float(new_balance)
-    
+class Account(ABC):
+  def __init__(self, branch: int, account_number: int, balance: float = 0) -> None:
+    self.branch = branch
+    self.account_number = account_number
+    self.balance = balance
 
-# 6594932659 - 600
-# 8673573743 - 450
-# 3115466757 - 250
+  @abstractmethod
+  def withdraw(self, amount: float) -> float: ...
+
+  def deposit(self, amount: float) -> float:
+    self.balance += amount
+    self.details(f"(DEPOSIT ${amount})")
+    return self.balance
+
+  def details(self, msg: str = "") -> None:
+    print(f"Current Balance: ${self.balance} - {msg}")
+
+
+class Current_Account(Account):
+  def __init__(self, branch: int, account_number: int, balance: float=0, limit: float=0 ):
+    super().__init__(branch, account_number, balance)
+    self.limit = limit
+
+  def withdraw(self, amount) -> float:
+    balance_plus_limit = self.balance + self.limit
+
+    if balance_plus_limit >= amount:
+        self.balance -= amount
+        self.details(f"(WITHDRAW ${amount})")
+        return self.balance
+    print("Insufficient Funds")
+    self.details(f"(WITHDRAW DENIED ${amount})")
+    return self.balance
+
+
+class Savings_Account(Account):
+  def withdraw(self, amount) -> float:
+    if self.balance >= amount:
+      self.balance -= amount
+      self.details(f"(WITHDRAW ${amount})")
+      return self.balance
+    print("Insufficient Funds")
+    self.details(f"(WITHDRAW DENIED ${amount})")
+    return self.balance
+
+
+if __name__ == '__main__':
+  sv1 = Savings_Account(111, 222)
+  sv1.withdraw(401)
+  sv1.deposit(200)
+  sv1.withdraw(100)
+  print("####")
+  ca1 = Current_Account(111, 222, 100)
+  ca1.deposit(200)
+  ca1.withdraw(100)
+  ca1.withdraw(100)
+  ca1.withdraw(100)
+  ca1.withdraw(1)
