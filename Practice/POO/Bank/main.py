@@ -1,5 +1,3 @@
-from Account import Account
-
 def menu():
   print('========== Bank Menu ==========')
   print("1. Add Account")

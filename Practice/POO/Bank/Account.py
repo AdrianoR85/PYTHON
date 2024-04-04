@@ -17,7 +17,6 @@ class Account(ABC):
   def details(self, msg: str = "") -> None:
     print(f"Current Balance: ${self.balance} - {msg}")
 
-
 class Current_Account(Account):
   def __init__(self, branch: int, account_number: int, balance: float=0, limit: float=0 ):
     super().__init__(branch, account_number, balance)
@@ -34,6 +33,10 @@ class Current_Account(Account):
     self.details(f"(WITHDRAW DENIED ${amount})")
     return self.balance
 
+  def __repr__(self) -> str:
+    class_name = type(self).__name__
+    attrs = f'branch={self.branch!r}, number={self.account_number!r}, balance={self.balance!r}, limit={self.limit!r}'
+    return f'{class_name} {attrs}'
 
 class Savings_Account(Account):
   def withdraw(self, amount) -> float:
@@ -44,6 +47,11 @@ class Savings_Account(Account):
     print("Insufficient Funds")
     self.details(f"(WITHDRAW DENIED ${amount})")
     return self.balance
+  
+  def __repr__(self) -> str:
+    class_name = type(self).__name__
+    attrs = f'branch={self.branch!r}, number={self.account_number!r}, balance={self.balance!r}'
+    return f'{class_name} {attrs}'
 
 
 if __name__ == '__main__':
