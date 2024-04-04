@@ -1,7 +1,6 @@
 from random import choice
 fruits = ["apple", "banana", "orange", "grape", "strawberry"]
 
-
 def show():
   print('=' * 30)
   print(" Welcome to the Hangman game!")
@@ -10,7 +9,6 @@ def show():
   print("You have 6 chances to guess the word!")
   print("Good Luck!")
   print()
-
 
 def hangman():
   show()
