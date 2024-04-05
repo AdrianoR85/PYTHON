@@ -1,4 +1,4 @@
-import Account
+import Accounts
 
 class Person:
   def __init__(self, name: str, age: int) -> None:
@@ -29,12 +29,12 @@ class Person:
 class Client(Person):
   def __init__(self, name: str, age: int) -> None:
     super().__init__(name, age)
-    self.account: Account.Account | None = None
+    self.account: Accounts.Account | None = None
 
 
 if __name__ == '__main__':
   
   client = Client('John', 30)
-  client.account = Account.Current_Account(111, 222, 0, 0)
+  client.account = Accounts.Current_Account(111, 222, 0, 0)
   print(client)
   print(client.account)
