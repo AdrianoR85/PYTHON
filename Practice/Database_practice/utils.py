@@ -1,10 +1,10 @@
 from Customer import Customer
 from Address import Address
+from sqlalchemy import Table, MetaData
 from connection import Base, engine, session
 import re
 
 Base.metadata.create_all(engine)
-
 def show_menu():
   print("\nOptions Menu\n")
   print('1 - New customer')
@@ -52,11 +52,21 @@ def add_customer(data):
   session.add(address)
   session.commit()
   
-def get_all_customers(text_list):
-  customers = session.query(Customer).all()
-  for customer in customers:
-    print(f"{customer.first_name.title()} {customer.last_name.title()} - {customer.email}")
+def get_all_customers():
+  metadata = MetaData()
+  metadata.bind = engine
+
+  # Crie uma instância da view
+  nome_da_view = Table('show_data_customer', metadata)
+  stmt = nome_da_view.select()
+
+  # Execute a consulta e obtenha os resultados
+  results = conn.execute(stmt).fetchall()
+
+  # Iterar sobre os resultados, se necessário
+  for row in results:
+    print(row)
 
 if __name__ == '__main__':
   input_text = ['First Name', 'Last Name', 'Email', 'Street', 'Number', 'City', 'State']
-  get_all_customers(input_text)
+  get_all_customers()
