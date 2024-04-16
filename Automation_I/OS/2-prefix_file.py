@@ -8,4 +8,4 @@ for path in file_paths:
   # print(file.suffix)
   new_filename = f'new-{path.stem}{path.suffix}'
   new_filepath = path.with_name(new_filename)
-  path.rename(new_filepath)
+  path.rename(new_filepath) 
