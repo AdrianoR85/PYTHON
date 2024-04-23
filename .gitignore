@@ -2,9 +2,12 @@ __pycache__
 .vscode
 mysql_206
 .venv
+venv
 .venv/
 .env
 .env/
 ENV/
 env.bak/
 venv.bak/
+
+
