@@ -1,0 +1,5 @@
+class vehicle:
+  ...
+
+class motocicle:
+  
