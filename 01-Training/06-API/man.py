@@ -15,7 +15,7 @@ if response.status_code == 200:
   response_data = response.json()
   df = pd.json_normalize(response_data, 'data')
   df = df[['id','symbol','name', 'priceUsd' ]]
-  connction = create_engine('mysql+pymysql://<USER>:<PASSWORD>@<HOST>:<PORT>/<DATABASE_NAME>')
-  df.to_sql('crypto_data', connction, if_exists='replace', index=False)
+  connection = create_engine('mysql+pymysql://<USER>:<PASSWORD>@<HOST>:<PORT>/<DATABASE_NAME>')
+  df.to_sql('crypto_data', connection, if_exists='replace', index=False)
 else:
   print('Failed to get data')
